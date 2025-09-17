@@ -27,20 +27,17 @@ useTexture.preload(
 );
 
 export default function App() {
-  const { debug } = useControls({ debug: false });
   return (
     <Canvas camera={{ position: [0, 0, 13], fov: 25 }}>
       <ambientLight intensity={Math.PI} />
       <Physics
-        debug={debug}
         interpolate
         gravity={[0, -40, 0]}
         timeStep={1 / 60}
       >
         <Band />
       </Physics>
-      <Environment background blur={0.75}>
-        <color attach="background" args={["black"]} />
+      <Environment blur={0.75}>
         <Lightformer
           intensity={2}
           color="white"
